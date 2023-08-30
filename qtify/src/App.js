@@ -46,23 +46,23 @@ function App() {
     }
   };
 
-  // const generateSongsData = async (value) => {
-  //   let key;
-  //   if (value === 0) {
-  //     filteredData(songsData);
-  //     return;
-  //   } else if (value === 1) {
-  //     key = "rock";
-  //   } else if (value === 2) {
-  //     key = "pop";
-  //   } else if (value === 3) {
-  //     key = "jazz";
-  //   } else if (value === 4) {
-  //     key = "blues";
-  //   }
-  //   const res = songsData.filter((item) => item.genre.key === key);
-  //   filteredData(res);
-  // };
+  const generateSongsData = async (value) => {
+    let key;
+    if (value === 0) {
+      filteredData(songsData);
+      return;
+    } else if (value === 1) {
+      key = "rock";
+    } else if (value === 2) {
+      key = "pop";
+    } else if (value === 3) {
+      key = "jazz";
+    } else if (value === 4) {
+      key = "blues";
+    }
+    const res = songsData.filter((item) => item.genre.key === key);
+    filteredData(res);
+  };
 
   const filteredData = (val) => {
     setFilteredDataValues(val);

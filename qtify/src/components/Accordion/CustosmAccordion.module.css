@@ -1,0 +1,22 @@
+.accordionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+.accordBody {
+  margin: 20px;
+  width: 1135px;
+  height: 78px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background: var(--color-black);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--color-white);
+}

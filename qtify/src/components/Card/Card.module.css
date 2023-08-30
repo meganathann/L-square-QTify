@@ -1,67 +1,43 @@
 .wrapper {
-  width: 100%;
-  height: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 6px;
+  width: 159px;
 }
 
-.cardContainer {
-  width: 159px;
+.card {
+  width: 160px;
   height: 205px;
   position: relative;
-}
-
-.cardBackground {
-  width: 159px;
-  height: 205px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: white;
   border-radius: 10px;
+  overflow: hidden;
 }
 
-.followsContainer {
-  width: auto;
-  height: auto;
+.banner {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 42px;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
   padding: 4px 8px;
-  left: 6px;
-  top: 176px;
-  position: absolute;
-  background: #121212;
   border-radius: 10px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1px;
+  /* In this way we gives more priority to chip class over miui class */
+  .chip {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
 }
 
-.followsText {
-  color: white;
-  font-size: 10px;
-  font-family: Poppins;
-  font-weight: 400;
-  word-wrap: break-word;
+.titleWrapper {
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cardImage {
-  width: 159px;
-  height: 170px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.cardTitle {
-  color: rgb(0, 0, 0);
-  font-size: 14px;
-  font-family: Poppins;
-  font-weight: 400;
-  word-wrap: break-word;
+.pills {
+  font-size: 12px;
+  background-color: var(--color-black);
+  width: max-content;
+  padding: 6px;
+  border-radius: 10px;
 }

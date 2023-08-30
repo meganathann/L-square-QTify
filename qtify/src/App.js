@@ -1,21 +1,36 @@
-import React from "react";
-import { NavBar } from "./components/Navbar/NavBar";
-import HeroSection from "./components/Hero/Hero";
-import Card from "./components/Card/Card";
+import React, { useEffect, useState } from "react";
+import { NavBar } from "./components/Navbar/Navbar"; // Note the correct casing
 
-const App = () => {
+import Hero from "./components/Hero/Hero";
+import Section from "./components/Section/Section";
+import { fetchTopAlbums } from "./api/api";
+import styles from "./App.module.css";
+
+function App() {
+  const [topAlbumData, setTopAlbumData] = useState([]);
+
+  const generateTopAlbumData = async () => {
+    try {
+      const data = await fetchTopAlbums();
+      setTopAlbumData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    generateTopAlbumData();
+  }, []);
+
   return (
-    <div className="app">
+    <div className={styles.app}>
       <NavBar />
-      <HeroSection />
-      <Card
-        likes={100}
-        title="New Bollywood"
-        image="https://via.placeholder.com/159x170"
-      />
-      {/* Other app content */}
+      <Hero />
+      <div className={styles.sectionWrapper}>
+        <Section data={topAlbumData} type="album" title="Top Album" />
+      </div>
     </div>
   );
-};
+}
 
 export default App;

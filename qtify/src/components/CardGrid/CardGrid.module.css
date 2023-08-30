@@ -1,0 +1,7 @@
+/* CardGrid.module.css */
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap; /* Wrap cards to the next row when they exceed container width */
+  justify-content: space-between; /* Distribute cards evenly in the container */
+  gap: 20px; /* Add gap between cards */
+}

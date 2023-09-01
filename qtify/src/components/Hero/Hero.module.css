@@ -1,11 +1,26 @@
+/* Hero styles */
 .hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 270px;
-  gap: 30px;
   text-align: center;
   color: white;
-
   background-color: black;
+  padding: 20px;
+}
+
+/* Default styles for the h1 elements */
+.hero h1 {
+  font-size: 2rem; /* Default font size */
+  margin: 10px 0; /* Default margin */
+}
+
+/* Media Query for screens with a max-width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  /* Adjust font size and margin for smaller screens */
+  .hero h1 {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    margin: 8px 0; /* Adjust the margin as needed */
+  }
 }

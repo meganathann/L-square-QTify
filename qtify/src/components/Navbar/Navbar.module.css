@@ -1,4 +1,4 @@
-/* NavBar styles */
+/* Default Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,6 +10,19 @@
 }
 
 .feedbackButton {
-  background-color: black; /* Set the background color */
-  color: white; /* Set the text color */
+  background-color: black;
+  color: white;
+}
+
+/* Media Query for screens with a max-width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px; /* Increase padding for better spacing on smaller screens */
+  }
+
+  .navbar a {
+    margin-top: 10px; /* Add some space between links */
+  }
 }

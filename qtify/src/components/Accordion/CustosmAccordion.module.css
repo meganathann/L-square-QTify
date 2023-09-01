@@ -1,3 +1,4 @@
+/* Default styles for the .accordionWrapper */
 .accordionWrapper {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,8 @@
   justify-content: center;
   color: var(--color-white);
 }
+
+/* Default styles for the .accordBody */
 .accordBody {
   margin: 20px;
   width: 1135px;
@@ -14,9 +17,21 @@
   background: var(--color-black);
 }
 
+/* Default styles for the .header */
 .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   color: var(--color-white);
+}
+
+/* Media Query for screens with a max-width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  /* Adjust .accordBody width for smaller screens */
+  .accordBody {
+    width: 100%; /* Set the width to 100% for responsiveness */
+    margin: 10px; /* Adjust margin for better spacing on smaller screens */
+  }
+
+  /* Adjust other styles as needed for smaller screens */
 }

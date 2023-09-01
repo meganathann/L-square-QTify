@@ -1,0 +1,21 @@
+.cardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .artist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .albumImg {
+    width: 66px;
+    height: 71px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .follow {
+    margin: 20px;
+  }

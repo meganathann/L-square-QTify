@@ -1,3 +1,4 @@
+/* Default styles for the search component */
 .search {
   padding: 14px 20px;
   border-radius: 8px;
@@ -6,12 +7,14 @@
   border: 1px solid var(--color-black);
   width: 502px;
 }
+
 .textField {
   display: flex;
   height: 48px;
   margin-top: -20px;
   padding: 4px;
 }
+
 .wrapper {
   display: flex;
   height: 48px;
@@ -25,4 +28,21 @@
   border-left: none;
   cursor: pointer;
   height: 100%;
+}
+
+/* Media Query for screens with a max-width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  /* Adjust the width of the search component for smaller screens */
+  .search {
+    width: 100%;
+    border-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: none;
+  }
+
+  /* Adjust other styles as needed for smaller screens */
+  .textField {
+    margin-top: 0;
+  }
 }

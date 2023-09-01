@@ -1,0 +1,12 @@
+.autoSuggestionWrapper {
+    width: 773px;
+    height: 455px;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #34c94b;
+    background-color: var(--color-black);
+    margin-top: 528px;
+    z-index: 10;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 220px;
+  }

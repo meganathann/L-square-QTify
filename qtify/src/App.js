@@ -1,20 +1,17 @@
 import Hero from "./components/Hero/Hero";
-import { NavBar } from "./components/Navbar/Navbar";
+import { NavBar } from "./components/Navbar/NavBar";
 import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from "./api/api";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Section from "./components/Section/Section";
 import styles from "./App.module.css";
 import FaqAccordion from "./components/Accordion/CustomAccordion";
-// import SongPlayer from "./components/SongPlayer/SongPlayer";
 
 function App() {
   const [topAlbumData, setTopAlbumData] = useState([]);
   const [newAlbumData, setNewAlbumData] = useState([]);
   const [songsData, setSongsData] = useState([]);
   const [filteredDataValues, setFilteredDataValues] = useState([]);
-  /* By default at zero index for all songs  */
   const [value, setValue] = useState(0);
-  const [allAlbumData, setAllAlbumData] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -28,14 +25,16 @@ function App() {
       console.log(error);
     }
   };
+
   const generateNewAlbumData = async () => {
     try {
       const newAlbum = await fetchNewAlbums();
       setNewAlbumData(newAlbum);
     } catch (error) {
-      throw new Error(error);
+      console.log(error); // Handle the error gracefully
     }
   };
+
   const generateAllSongsData = async () => {
     try {
       const song = await fetchSongs();
@@ -46,10 +45,10 @@ function App() {
     }
   };
 
-  const generateSongsData = async (value) => {
+  const generateSongsData = useCallback(async () => {
     let key;
     if (value === 0) {
-      filteredData(songsData);
+      setFilteredDataValues(songsData);
       return;
     } else if (value === 1) {
       key = "rock";
@@ -61,22 +60,19 @@ function App() {
       key = "blues";
     }
     const res = songsData.filter((item) => item.genre.key === key);
-    filteredData(res);
-  };
-
-  const filteredData = (val) => {
-    setFilteredDataValues(val);
-  };
-
+    setFilteredDataValues(res);
+  }, [value, songsData]);
+  
   useEffect(() => {
     generateTopAlbumData();
     generateNewAlbumData();
     generateAllSongsData();
   }, []);
+  
   useEffect(() => {
-    generateSongsData(value);
-  }, [value]);
-
+    generateSongsData();
+  }, [generateSongsData]);
+  
   return (
     <>
       <NavBar albumData={[...topAlbumData, ...newAlbumData]} />
@@ -104,7 +100,6 @@ function App() {
         />
       </div>
       <FaqAccordion />
-      {/* <SongPlayer /> */}
     </>
   );
 }
